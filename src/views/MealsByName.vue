@@ -1,6 +1,7 @@
 <template>
   <div class="p-8">
     <input type="text" 
+        v-model="keyword"
         placeholder="Search for Meals" 
         class="rounded border-2 border-gray-200 w-full"
         @change="searchMeals()"
@@ -22,11 +23,11 @@
           <b>Pays : </b>{{ meal.strArea }} - <b>Category : </b>{{ meal.strCategory }}
         </time>
 
-        <a href="#">
+        <router-link :to="{ name: 'mealDetails', params: {id: meal.idMeal} }" >
           <h3 class="mt-0.5 text-lg text-gray-900">
             {{ meal.strMeal }}
           </h3>
-        </a>
+        </router-link>
 
         <p class="mt-2 text-sm leading-relaxed text-gray-500 line-clamp-3">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
