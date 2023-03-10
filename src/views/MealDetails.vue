@@ -11,34 +11,29 @@
             />
           </div>
 
-          <div class="sticky top-0">
+          <div class="sticky pt-6 top-0">
             <a
               :href="meal.strYoutube"
               target="_blank"
-              class="rounded-full border border-red-500 bg-red-500 px-3 py-0.5 text-xs font-medium tracking-wide text-white hover:bg-red-700"
+              class="rounded-full border border-red-500 bg-red-500 px-3 py-0.5 mx-1 text-xs font-medium tracking-wide text-white hover:bg-red-700"
             >
               Youtube
+            </a>
+            <a
+              v-if="meal.strSource"
+              :href="meal.strSource"
+              target="_blank"
+              class="rounded-full border border-yellow-600 bg-yellow-600 px-3 py-0.5 mx-1 text-xs font-medium tracking-wide text-white hover:bg-yellow-700"
+            >
+              Source
             </a>
 
             <div class="mt-8 flex justify-between">
               <div class="max-w-[35ch] space-y-2">
                 <h1 class="text-xl font-bold sm:text-2xl">
                   {{ meal.strMeal }}
-                </h1>
-
-                <p class="text-sm">Highest Rated Product</p>
-
-               
-              </div>
-
-              <p class="text-lg font-bold">$119.99</p>
-            </div>
-
-            <div class="mt-4">
-              <div class="prose max-w-none">
-                <p>
-                  {{ meal.strInstructions }}
-                </p>
+                </h1>   
+                <p class="text-m">Meal ID : #{{ meal.idMeal }}</p>            
               </div>
             </div>
 
@@ -49,7 +44,7 @@
                 <div class="flex flex-wrap gap-1">
                   <label for="color_tt" class="cursor-pointer">
                     <span
-                      class="group inline-block rounded-full border px-3 py-1 text-sm font-medium peer-checked:bg-black peer-checked:text-white"
+                      class="group bg-blue-200 inline-block rounded-full border px-3 py-1 text-sm font-medium peer-checked:bg-black peer-checked:text-white"
                     >
                       {{ meal.strTags }}
                     </span>
@@ -58,113 +53,76 @@
               </fieldset>
 
               <fieldset class="mt-4">
-                <legend class="mb-1 text-sm font-medium">Size</legend>
+                <legend class="mb-1 text-sm font-medium">Country : </legend>
 
                 <div class="flex flex-wrap gap-1">
                   <label for="size_xs" class="cursor-pointer">
-                    <input
-                      type="radio"
-                      name="size"
-                      id="size_xs"
-                      class="peer sr-only"
-                    />
-
                     <span
-                      class="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white"
+                      class="group bg-purple-200 inline-block rounded-full border px-3 py-1 text-sm font-medium peer-checked:bg-black peer-checked:text-white"
                     >
-                      XS
+                    {{ meal.strArea }}
                     </span>
                   </label>
 
-                  <label for="size_s" class="cursor-pointer">
-                    <input
-                      type="radio"
-                      name="size"
-                      id="size_s"
-                      class="peer sr-only"
-                    />
-
-                    <span
-                      class="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white"
-                    >
-                      S
-                    </span>
-                  </label>
-
-                  <label for="size_m" class="cursor-pointer">
-                    <input
-                      type="radio"
-                      name="size"
-                      id="size_m"
-                      class="peer sr-only"
-                    />
-
-                    <span
-                      class="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white"
-                    >
-                      M
-                    </span>
-                  </label>
-
-                  <label for="size_l" class="cursor-pointer">
-                    <input
-                      type="radio"
-                      name="size"
-                      id="size_l"
-                      class="peer sr-only"
-                    />
-
-                    <span
-                      class="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white"
-                    >
-                      L
-                    </span>
-                  </label>
-
-                  <label for="size_xl" class="cursor-pointer">
-                    <input
-                      type="radio"
-                      name="size"
-                      id="size_xl"
-                      class="peer sr-only"
-                    />
-
-                    <span
-                      class="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white"
-                    >
-                      XL
-                    </span>
-                  </label>
                 </div>
               </fieldset>
 
-              <div class="mt-8 flex gap-4">
-                <div>
-                  <label for="quantity" class="sr-only">Qty</label>
+              <fieldset class="mt-4">
+                <legend class="mb-1 text-sm font-medium">Category : </legend>
 
-                  <input
-                    type="number"
-                    id="quantity"
-                    min="1"
-                    value="1"
-                    class="w-12 rounded border-gray-200 py-3 text-center text-xs [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
-                  />
+                <div class="flex flex-wrap gap-1">
+                  <label for="size_xs" class="cursor-pointer">
+                    <span
+                      class="group bg-orange-200 inline-block rounded-full border px-3 py-1 text-sm font-medium peer-checked:bg-black peer-checked:text-white"
+                    >
+                    {{ meal.strCategory }}
+                    </span>
+                  </label>
+
                 </div>
+              </fieldset>
 
-                <button
-                  type="submit"
-                  class="block rounded bg-green-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500"
-                >
-                  Add to Cart
-                </button>
-              </div>
+             
             </form>
+          </div>
+        </div>
+
+        <div class="relative overflow-x-auto">
+            <h2 class="text-x font-bold sm:text-xl mt-5 mb-2">Ingredients : </h2>
+            <table class="w-full text-sm text-left text-gray-500">
+                <thead class="text-xs text-gray-100 uppercase bg-gray-900 ">
+                    <tr>
+                        <th class="px-6 py-3">
+                          Ingredient
+                        </th>
+                        <th class="px-6 py-3">
+                          Measure
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-gray-200 text-gray-900 font-medium" v-for="(nmb, inx) in 20" :key="nmb" >
+                        <th class="px-6 py-4 whitespace-nowrap" v-if="meal[`strIngredient${inx + 1}`]">
+                          {{ inx + 1 }} - {{ meal[`strIngredient${inx + 1}`] }}
+                        </th>
+                        <td class="px-6 py-4" v-if="meal[`strIngredient${inx + 1}`]">
+                          {{ meal[`strMeasure${inx + 1}`] }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mt-4">
+          <div class="prose max-w-none">
+            <h2 class="text-x font-bold sm:text-xl mb-2">Instructions : </h2>
+            <p>
+              {{ meal.strInstructions }}
+            </p>
           </div>
         </div>
       </div>
     </section>
-
-    <pre>{{ meal }}</pre>
 </div>
 
 </template>
