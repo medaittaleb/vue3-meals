@@ -4,8 +4,15 @@
     <router-link :to="{ name: 'byLetter', params: { leftter } }" v-for="leftter of letters" :key="leftter">{{ leftter }}</router-link>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-5 p-8">
-    <MealCard v-for="meal of meals" :key="meal.idMeal" :meal="meal" />
+  <div v-if="meals">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 p-8">
+      <MealCard v-for="meal of meals" :key="meal.idMeal" :meal="meal" />
+    </div>
+  </div>
+  <div v-else>
+    <div class="text-center p-8">
+      <h2 class="bg-orange-100 p-2 text-x font-medium">No Meals found for the letter {{ route.params.leftter }}</h2>
+    </div>
   </div>
 
 </template>
